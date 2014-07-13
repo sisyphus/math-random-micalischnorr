@@ -1,0 +1,16 @@
+ - 0.03
+   Add metadata to Makefile.PL
+
+   Add autocorrelation_20000 test.
+
+   Add autocorrelation test.
+
+   The poker test appended 0's to the *end* of the bitstring (to compensate for
+    missing leading 0's). Change it so that 0's are added to the *beginning* of
+    the string, as is strictly correct ... in case it matters.
+
+ - 0.02
+   Amend POD documentation.
+
+ - 0.01
+   First release
