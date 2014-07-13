@@ -1,0 +1,10 @@
+MANIFEST
+CHANGES
+README
+Makefile.PL
+MicaliSchnorr.pm
+MicaliSchnorr.xs
+typemap
+t/aab_basic.t
+t/ms.t
+t/pod.t
