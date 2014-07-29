@@ -1,4 +1,6 @@
  - 0.05
+   Fix pod synopsis example. (Thanks Dana Jacobsen)
+   Doc fixes. (Thanks Dana Jacobsen)
 
  - 0.04
    Fix error in t/ms.t
