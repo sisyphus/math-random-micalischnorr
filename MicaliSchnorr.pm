@@ -48,8 +48,8 @@ __END__
    # and/or:
    #use Math::GMPz;
 
-   my $s1 = '1255031698703398971890886237939563492533';
-   my $s2 = '10512667662093824763131998324796018248471';
+   my $s1 = '615389388455725613122981570401989286707';
+   my $s2 = '8936277569639798554773638405675965349567';
    my $prime1    = Math::GMP->new($s1);
    my $prime2    = Math::GMP->new($s2);
    my $seed      = Math::GMP->new(time + int(rand(10000)));
@@ -94,7 +94,8 @@ __END__
      i) 2 < $exp < phi
      ii) The greatest common denominator of $exp and phi is 1
      iii) $exp * 80 <= N
-    Conditions i) and iii) mean that N has to be at least 340 (80 * 3).
+    Conditions i) and iii) mean that N has to be at least 240 (80 * 3) - ie
+    the no. of bits in the product of the two primes must be at least 240.
     The ms_seedgen function selects the largest value for $exp that
     satisfies those 3 conditions. Having found a suitable value for $exp, we
     then need to calculate the integer value k = int(N *(1 - (2 / $exp))).
