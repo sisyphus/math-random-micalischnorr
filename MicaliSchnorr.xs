@@ -44,7 +44,7 @@ void ms_seedgen(pTHX_ mpz_t * seed, SV * exp, mpz_t * p, mpz_t * q) {
      while(1) {
        if(mpz_gcd_ui(NULL, phi, ret) == 1) break;
        ret -= 2;
-       if(ret < 3) croak("The chosen primes are unsuitable in ms_seedgen(aTHX) function");
+       if(ret < 3) croak("The chosen primes are unsuitable in ms_seedgen function");
      }
 
      mpz_clear(phi);
@@ -127,7 +127,7 @@ void ms(pTHX_ mpz_t * outref, mpz_t * p, mpz_t * q, mpz_t * seed, SV * exp, int 
      if(r_shift) mpz_fdiv_q_2exp(*outref, *outref, k - r_shift);
 
      if(check + mpz_sizeinbase(*outref, 2) != bits_required)
-        croak("Bug in ms(aTHX) function");
+        croak("Bug in ms function");
 
 }
 
@@ -278,7 +278,7 @@ int poker (mpz_t * bitstream) {
       mpz_mul_2exp(temp, temp, 19999);
       mpz_add(*bitstream, *bitstream, temp);
     }
-    if(mpz_sizeinbase(*bitstream, 2) != 20000) croak("Bit sequence has length of %d bits in poker() function", mpz_sizeinbase(*bitstream, 2));
+    if(mpz_sizeinbase(*bitstream, 2) != 20000) croak("Bit sequence has length of %d bits in poker function", mpz_sizeinbase(*bitstream, 2));
 
     for(i = 0; i < 19996; i += 4) {
         st = mpz_tstbit(*bitstream, i) +
@@ -335,7 +335,7 @@ void autocorrelation(pTHX_ mpz_t * bitstream, int offset) {
        mpz_mul_2exp(temp, temp, 19999);
        mpz_add(*bitstream, *bitstream, temp);
      }
-     if(mpz_sizeinbase(*bitstream, 2) != 20000) croak("Bit sequence has length of %d bits in autocorrelation(aTHX) function", mpz_sizeinbase(*bitstream, 2));
+     if(mpz_sizeinbase(*bitstream, 2) != 20000) croak("Bit sequence has length of %d bits in autocorrelation function", mpz_sizeinbase(*bitstream, 2));
 
      index = 19999 - offset;
      for(i = 0; i < index - 1; ++i) {
@@ -381,7 +381,7 @@ int autocorrelation_20000(pTHX_ mpz_t * bitstream, int offset) {
       mpz_mul_2exp(temp, temp, 19999 + offset);
       mpz_add(*bitstream, *bitstream, temp);
     }
-   if(mpz_sizeinbase(*bitstream, 2) != 20000 + offset) croak("Bit sequence has length of %d bits in autocorrelation_20000(aTHX) function; should have size of %d bits", mpz_sizeinbase(*bitstream, 2), 20000 + offset);
+   if(mpz_sizeinbase(*bitstream, 2) != 20000 + offset) croak("Bit sequence has length of %d bits in autocorrelation_20000 function; should have size of %d bits", mpz_sizeinbase(*bitstream, 2), 20000 + offset);
 
     for(i = 0; i < 19999; ++i) {
       if(mpz_tstbit(*bitstream, i) ^ mpz_tstbit(*bitstream, i + offset)) count += 1;
