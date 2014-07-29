@@ -5,7 +5,7 @@ require Exporter;
 *import = \&Exporter::import;
 require DynaLoader;
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 #$VERSION = eval $VERSION;
 
 DynaLoader::bootstrap Math::Random::MicaliSchnorr $VERSION;
