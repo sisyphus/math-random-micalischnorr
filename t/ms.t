@@ -108,8 +108,8 @@ if($have_gmpz) {
   my $seed = Math::GMPz->new(int(rand(100000)));
   my $random_offset = 10 + int(rand(10000));
   my $exp;
-  my $bitstream = Math::GMPz->new();
-  my $bitstream_20000 = Math::GMPz->new();
+  my $bitstream = Math::GMPz::Rmpz_init2(20000);
+  my $bitstream_20000 = Math::GMPz::Rmpz_init2(20000 + $random_offset);
 
   ms_seedgen($seed, $exp, $p1, $p2);
   if(Math::GMPz::Rmpz_sizeinbase($seed, 2) <= 305 && Math::GMPz::Rmpz_sizeinbase($seed, 2) >= 275 && $exp == 5) {print "ok ", $count + 1, "\n"}
