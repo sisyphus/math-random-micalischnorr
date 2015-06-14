@@ -1,7 +1,9 @@
+
  - 0.05
    Fix pod synopsis example. (Thanks Dana Jacobsen)
    Doc fixes. (Thanks Dana Jacobsen)
- - 0.06
+   Makefile.PL - Replace the Math::GMP PREREQ_PM with Math::GMPz (and save 20 minutes
+                 on the install-time).
    t/ms.t - improve efficiency of Math::GMPz test by allocating full number of
             bits to $bitstream & $bitstream_20000 at time of creation. (Rmpz_init2)
 
