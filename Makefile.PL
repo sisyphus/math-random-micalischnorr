@@ -5,7 +5,7 @@ my %options =
   'NAME' => 'Math::Random::MicaliSchnorr',
   'LIBS' => ['-lgmp'],
   'VERSION_FROM' => 'MicaliSchnorr.pm',
-  'PREREQ_PM' => {'Math::GMP'  => 2.0,},
+  'PREREQ_PM' => {'Math::GMPz'  => 0,},
   'LICENSE'  => 'perl',
   META_MERGE => {
    'meta-spec' => { version => 2 },
