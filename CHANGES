@@ -1,4 +1,5 @@
  - 0.06
+   Replace SvIV with SvIVX in typemap.
 
  - 0.05
    Fix pod synopsis example. (Thanks Dana Jacobsen)
