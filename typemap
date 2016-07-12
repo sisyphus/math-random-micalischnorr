@@ -5,10 +5,10 @@ mpfr_t *	MPFR
 
 INPUT
 MPQ
-            $var = INT2PTR($type, SvIV(SvRV($arg)))
+            $var = INT2PTR($type, SvIVX(SvRV($arg)))
 MPZ
-            $var = INT2PTR($type, SvIV(SvRV($arg)))
+            $var = INT2PTR($type, SvIVX(SvRV($arg)))
 MPF
-            $var = INT2PTR($type, SvIV(SvRV($arg)))
+            $var = INT2PTR($type, SvIVX(SvRV($arg)))
 MPFR
-            $var = INT2PTR($type, SvIV(SvRV($arg)))
+            $var = INT2PTR($type, SvIVX(SvRV($arg)))
