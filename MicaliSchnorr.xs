@@ -154,7 +154,7 @@ int longrun(mpz_t * bitstream) {
 
     len = mpz_sizeinbase(*bitstream, 2);
 
-    if(len > 20000) croak("Wrong size random sequence for Rlong_run test");
+    if(len > 20000) croak("Wrong size random sequence for long_run test");
     if(len < 19967) {
        warn("More than 33 leading zeroes in long_run test\n");
        return 0;
@@ -362,7 +362,7 @@ void autocorrelation(pTHX_ mpz_t * bitstream, int offset) {
 }
 
 int autocorrelation_20000(pTHX_ mpz_t * bitstream, int offset) {
-    dXSARGS;
+
     int i, last, count = 0, short_ = 0;
     mpz_t temp;
     double x, diff;
