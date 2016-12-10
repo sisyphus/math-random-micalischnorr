@@ -1,5 +1,7 @@
  - 0.06
    Replace SvIV with SvIVX in typemap.
+   Remove dXSARGS declaration from autocorrelation_20000(). It's not needed and it
+    results in an assertion failure with -DDEBUGGING perls.
 
  - 0.05
    Fix pod synopsis example. (Thanks Dana Jacobsen)
