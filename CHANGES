@@ -1,3 +1,6 @@
+ - 0.07
+   Update copyright
+
  - 0.06
    Replace SvIV with SvIVX in typemap.
    Remove dXSARGS declaration from autocorrelation_20000(). It's not needed and it
