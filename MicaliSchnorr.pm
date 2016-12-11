@@ -5,7 +5,7 @@ require Exporter;
 *import = \&Exporter::import;
 require DynaLoader;
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 #$VERSION = eval $VERSION;
 
 DynaLoader::bootstrap Math::Random::MicaliSchnorr $VERSION;
@@ -145,7 +145,7 @@ __END__
 
    This program is free software; you may redistribute it and/or
    modify it under the same terms as Perl itself.
-   Copyright 2006-2008, 2009, 2010, 2014, Sisyphus
+   Copyright 2006-2008, 2009, 2010, 2014, 2016, Sisyphus
 
 =head1 AUTHOR
 
