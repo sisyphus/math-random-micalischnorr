@@ -8,7 +8,7 @@ require DynaLoader;
 our $VERSION = '0.07';
 #$VERSION = eval $VERSION;
 
-DynaLoader::bootstrap Math::Random::MicaliSchnorr $VERSION;
+Math::Random::MicaliSchnorr->DynaLoader::bootstrap($VERSION);
 
 @Math::Random::MicaliSchnorr::EXPORT_OK = qw(ms ms_seedgen monobit longrun runs poker autocorrelation autocorrelation_20000);
 %Math::Random::MicaliSchnorr::EXPORT_TAGS =(all => [qw(ms ms_seedgen monobit longrun runs poker autocorrelation autocorrelation_20000)]);
