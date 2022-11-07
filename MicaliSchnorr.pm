@@ -8,10 +8,11 @@ require DynaLoader;
 our $VERSION = '0.07';
 #$VERSION = eval $VERSION;
 
-Math::Random::MicaliSchnorr->DynaLoader::bootstrap($VERSION);
+my @tagged = qw(ms ms_seedgen monobit longrun runs poker autocorrelation autocorrelation_20000);
 
-@Math::Random::MicaliSchnorr::EXPORT_OK = qw(ms ms_seedgen monobit longrun runs poker autocorrelation autocorrelation_20000);
-%Math::Random::MicaliSchnorr::EXPORT_TAGS =(all => [qw(ms ms_seedgen monobit longrun runs poker autocorrelation autocorrelation_20000)]);
+Math::Random::MicaliSchnorr->DynaLoader::bootstrap($VERSION);
+@Math::Random::MicaliSchnorr::EXPORT_OK = @tagged;
+%Math::Random::MicaliSchnorr::EXPORT_TAGS =(all => \@tagged);
 
 sub dl_load_flags {0} # Prevent DynaLoader from complaining and croaking
 
