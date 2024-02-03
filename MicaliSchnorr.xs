@@ -64,9 +64,9 @@ void ms_seedgen(pTHX_ mpz_t * seed, SV * exp, mpz_t * p, mpz_t * q) {
      gmp_randclear(state);
 }
 
-void ms(pTHX_ mpz_t * outref, mpz_t * p, mpz_t * q, mpz_t * seed, SV * exp, int bits_required) {
+void ms(pTHX_ mpz_t * outref, mpz_t * p, mpz_t * q, mpz_t * seed, SV * exp, unsigned long bits_required) {
      mpz_t n, phi, pless1, qless1, mod, keep;
-     unsigned long k, bign, r, its, i, r_shift, check;
+     unsigned long k, bign, r, its, i, r_shift, check = 0;
      double kdoub;
 
      if(SvUV(exp) <= 2) croak("Unsuitable exponent supplied to ms function - needs to be greater than 2");
@@ -132,7 +132,7 @@ void ms(pTHX_ mpz_t * outref, mpz_t * p, mpz_t * q, mpz_t * seed, SV * exp, int 
 }
 
 int monobit(mpz_t * bitstream) {
-    unsigned long len, i, count = 0;
+    unsigned long len, count = 0;
 
     len = mpz_sizeinbase(*bitstream, 2);
 
@@ -319,6 +319,7 @@ void autocorrelation(pTHX_ mpz_t * bitstream, int offset) {
      mpz_t temp;
      double x, diff;
      int len = mpz_sizeinbase(*bitstream, 2);
+     PERL_UNUSED_VAR(items);
 
      if(len > 20000) croak("Wrong size random sequence for autocorrelation test");
      if(len < 19967) {
@@ -361,12 +362,11 @@ void autocorrelation(pTHX_ mpz_t * bitstream, int offset) {
    XSRETURN(2);
 }
 
-int autocorrelation_20000(pTHX_ mpz_t * bitstream, int offset) {
+int autocorrelation_20000(pTHX_ mpz_t * bitstream, unsigned long offset) {
 
-    int i, last, count = 0, short_ = 0;
+    unsigned long i, last, count = 0, short_ = 0;
     mpz_t temp;
-    double x, diff;
-    int len = mpz_sizeinbase(*bitstream, 2);
+    unsigned long len = mpz_sizeinbase(*bitstream, 2);
 
     if(len > 20000 + offset) croak("Wrong size random sequence for autocorrelation_20000 test");
     if(len < 19967 + offset) {
@@ -434,7 +434,7 @@ ms (outref, p, q, seed, exp, bits_required)
 	mpz_t *	q
 	mpz_t *	seed
 	SV *	exp
-	int	bits_required
+	unsigned long	bits_required
         PREINIT:
         I32* temp;
         PPCODE:
@@ -484,7 +484,7 @@ autocorrelation (bitstream, offset)
 int
 autocorrelation_20000 (bitstream, offset)
 	mpz_t *	bitstream
-	int	offset
+	unsigned long	offset
 CODE:
   RETVAL = autocorrelation_20000 (aTHX_ bitstream, offset);
 OUTPUT:  RETVAL

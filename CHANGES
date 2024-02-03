@@ -1,5 +1,6 @@
  - 0.07
    Update copyright
+   Silence pointless warnings.
 
  - 0.06
    Replace SvIV with SvIVX in typemap.
